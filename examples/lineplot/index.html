@@ -13,6 +13,8 @@ const marginRight = 50;
 const marginBottom = 50;
 const marginLeft = 50;
 
+/*** HELPER FUNCTIONS ***/
+
 // this function must me awaited to get the data and not a promise
 async function loadData() {
     const data_raw = d3.csv("data.csv", d3.autoType);
@@ -27,6 +29,7 @@ for (let i = 0; i < data.length; i++) {
     // console.log(data[i].dt, data[i].temp);
 }
 
+// accepts an array of objects and returns the lowest key value
 function min(rows, key) {
     let min = rows[0][key];
     for(let i=0; i < rows.length; i++) {
@@ -37,6 +40,7 @@ function min(rows, key) {
     return min
 }
 
+// Accepts an array of objects and returns the highest key value
 function max(rows, key) {
     let max = rows[0][key];
     for(let i=0; i < rows.length; i++) {
@@ -46,6 +50,8 @@ function max(rows, key) {
     }
     return max
 }
+
+/*** DRAW X AND Y AXES ***/
 
 // Declare the x (horizontal position) scale.
 const x = d3.scaleUtc()
@@ -77,12 +83,16 @@ svg.append("g")
     .attr("transform", `translate(${marginLeft},0)`)
     .call(d3.axisLeft(y));
 
+/*** DRAW THE LINE ***/
+
 // Add the line
 svg.append("path")
     .attr("fill", "none")
     .attr("stroke", "steelblue")
     .attr("stroke-width", 1.5)
     .attr("d", line(data));
+
+/*** ALWAYS ADD AXIS LABELS ***/
 
 // Add X axis label:
 svg.append("text")

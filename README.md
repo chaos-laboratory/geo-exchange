@@ -9,9 +9,3 @@
 └── src
     └── [final charts here]
 ```
-
-<!-- - `examples`
-    - `axes` - introduction to the mechanics of D3
-- `src`
-    - `production`
-    - `developement` -->
