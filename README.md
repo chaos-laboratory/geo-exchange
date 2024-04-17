@@ -4,12 +4,10 @@
 ```
 ├── README.md
 ├── examples
-│   └── axes
+│   └── lineplot
 │       └── index.html - introduction to the mechanics of D3
 └── src
-    ├── chart.js
-    ├── d3.v7.min.js
-    └── data.csv
+    └── [final charts here]
 ```
 
 <!-- - `examples`
